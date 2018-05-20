@@ -237,6 +237,11 @@ app.post('/api/createreview', (req, res) => {
     }
 });
 
+app.get('/api/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+
 app.get('/api/login', (req, res) => {
     // Render the login page
     res.render('login');

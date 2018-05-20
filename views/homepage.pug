@@ -4,6 +4,7 @@ html
     main
         if user
             h1 Welcome #{user.firstname} #{user.lastname}!
+            a(href="/api/logout") Déconnexion
         else
             h1 Connectez-vous ou créez un compte:
             div.alignement
