@@ -1,0 +1,45 @@
+html
+    head
+        link(rel="stylesheet", href="/css/styles.css")
+    main
+        if user
+            h1 Welcome #{user.firstname} #{user.lastname}!
+        else
+            h1 Connectez-vous ou créez un compte:
+            div.alignement
+                a(href="/api/login") Log in
+                a(href="/api/signUp") Sign up
+
+        if(reviews.length === 0)
+            p Aucune review :(
+        else
+            h2 ~~~~~~ Reviews ~~~~~~
+            div.verticalFlow
+                a(href="/api/createreview") Ajoutez une review!
+                for review in reviews
+                    p ________________________
+                    article.horizontalFlow
+                        div.voteButtons
+                            form(method="post", action="/api/review/" + review.id + "/upvote")
+                                button(type="submit") like
+                            p Pertinance: #{review.score}
+                            form(method="post", action="/api/review/" + review.id + "/downvote")
+                                button(type="submit") dislike
+                        div
+                            h1 Game Review de #{review.game}
+                            span .................
+                            h3 #{review.note}/10
+                            span .................
+                            p #{review.content}
+                            p.italic Auteur: #{review.user.firstname}
+                    h3 Section Commentaires
+                    if(review.comments.length === 0)
+                        p.italic Soyez le premier à donner votre avis.
+                    else
+                        for comment in review.comments
+                          p #{comment.content}
+                          p.italic Par #{comment.userfirstname}
+                          span __
+                    form.verticalFlow.commentReview(method="GET", action="/api/review/" + review.id + "/comment")
+                        textarea(name="content", placeholder="")
+                        button(type="submit") Commenter

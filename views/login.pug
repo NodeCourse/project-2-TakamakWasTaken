@@ -1,0 +1,14 @@
+html
+    head
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        if error
+            h1 #{error}
+        else
+            h1 Connectez-vous:
+            div.verticalFlow
+                form.verticalFlow(method="post")
+                    input(type="email", name="username", placeholder="email")
+                    input(type="password", name="password", placeholder="password")
+                    button(type="submit") Log in
+                a(href="/api/signup") Pas encore de compte?
