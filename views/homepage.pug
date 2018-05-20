@@ -23,7 +23,7 @@ html
                         div.voteButtons
                             form(method="post", action="/api/review/" + review.id + "/upvote")
                                 button(type="submit") like
-                            p Pertinance: #{review.score}
+                            p Pertinence: #{review.score}
                             form(method="post", action="/api/review/" + review.id + "/downvote")
                                 button(type="submit") dislike
                         div
