@@ -1,0 +1,12 @@
+html
+    head
+        link(rel="stylesheet", href="/css/styles.css")
+    main
+        h1 Partagez votre expérience de G@M3R:
+        div.verticalFlow.container
+            form.verticalFlow.createreview(method="post", action ="/api/createreview")
+                input(type="text", name="game", placeholder="Nom du jeu")
+                input(type="number", name="note", min="0", max="10" placeholder="Note sur 10")
+                textarea(name="content", placeholder="Commentaire")
+                button(type="submit") Envoyer
+            a(href="/") Accueil

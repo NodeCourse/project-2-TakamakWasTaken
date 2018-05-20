@@ -1,0 +1,18 @@
+html
+    head
+        title Signup on my awesome website!
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+        main
+            if user
+                h1 Hello #{user.firstname} #{user.lastname}
+            else
+                h1 Inscrivez-vous:
+                div.verticalFlow
+                    form.verticalFlow(method="POST")
+                        input(type="text", name="firstname", placeholder="Prénom")
+                        input(type="text", name="lastname", placeholder="Nom")
+                        input(type="text", name="email", placeholder="Email")
+                        input(type="password", name="password", placeholder="Mot de passe")
+                        button(type="submit") Envoyer
+                    a(href="/api/login") Déjà inscrit?
