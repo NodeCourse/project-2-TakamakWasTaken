@@ -124,7 +124,7 @@ passport.deserializeUser((username, cb) => {
 
 app.get('/api/signUp', (req, res) => {
     res.render('signUp');
-})
+});
 
 app.post('/api/signUp', (req, res) => {
     const firstname = req.body.firstname;
